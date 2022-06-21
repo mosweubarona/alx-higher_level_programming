@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 """Defines square class
+
 public instance method: def area(self)
 public instance method: def my_print(self)
 """
+
+
 class Square:
     """Implimentation"""
-    def __init__(self, size=0):
+
+    def __init__(self, size=0, position=(0, 0)):
         self.size = size
         self.position = position
 
@@ -22,9 +26,11 @@ class Square:
         self.__size = size
 
     def area(self):
+        """find square"""
         return (self.__size ** 2)
 
     def my_print(self):
+        """print square"""
         if (self.__size == 0):
             print('')
         else:
@@ -38,6 +44,7 @@ class Square:
 
     @position.setter
     def position(self, position):
+        """the setter"""
         if type(position) != tuple or \
             len(position) != 2 or \
             not all(isinstance(el, int) for el in position) or \
