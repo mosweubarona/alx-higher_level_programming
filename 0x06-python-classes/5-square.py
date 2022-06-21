@@ -7,7 +7,6 @@ class Square:
 
     def __init__(self, size=0):
         self.size = size
-        """initilizing"""
 
     @property
     def size(self):
@@ -28,5 +27,5 @@ class Square:
         if (self.__size == 0):
             print('')
 
-        for l in range(self.__size):
-            print('#' * self.__size)
+            for l in range(self.__size):
+                print('#' * self.__size)
