@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 """Defines square class"""
+
+
 class Square:
     """Implimentation"""
+
     def __init__(self, size=0):
         self.size = size
+        """initiazing"""
 
     @property
     def size(self):
