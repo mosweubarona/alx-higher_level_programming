@@ -5,6 +5,6 @@
 class Square:
     """Defines module square class"""
 
-    def __init__(selt, size):
+    def __init__(self, size):
         """initializing"""
         self._size = size
