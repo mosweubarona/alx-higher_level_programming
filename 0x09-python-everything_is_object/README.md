@@ -1,0 +1,1 @@
+# evrithing about pthon
