@@ -15,8 +15,8 @@ class Rectangle(BaseGeometry):
             width (int): width
             height (int): height
         """
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
+        super().integer_validator("width", width)
+        super().integer_validator("height", height)
         self.__width = width
         self.__height = height
 
@@ -34,4 +34,6 @@ class Rectangle(BaseGeometry):
         Returns:
             str: string representation
         """
-        return "[Rectangle] {:d}/{:d}".format(self.__width, self.__height)
+        string = "[" + str(self.__class__.__name__) + "]"
+        string += str(self.__width) + "/" + str(self.__height)
+        return string
