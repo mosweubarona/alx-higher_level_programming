@@ -1,26 +1,26 @@
 #!/usr/bin/python3
-"""takes in an argument and displays all values in the states 
-table of hbtn_0e_0_usa where name matches the argument
+"""List all states where 'name' matches the argument
+Username, password, database name, and state name given as user args
 """
 import sys
 import MySQLdb
 
-# The code should not be executed when imported
-if __name__ == '__main__':
-
-    # make a connection to the database
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                         passwd=argv[2], db=argv[3])
-
-    # It gives us the ability to have multiple seperate working environments
-    # through the same connection to the database.
+if __name__ == "__main__":
+    db = MySQLdb.connect(user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3],
+                         host='localhost',
+                         port=3306)
     cur = db.cursor()
-    nmeSr = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
-    cur.execute(nmeSr)
+    cmd = """SELECT id, name
+         FROM states
+         WHERE name LIKE BINARY '{}'
+         ORDER BY id ASC""".format(sys.argv[4])
+    cur.execute(cmd)
+    nStates = cur.fetchall()
 
-    rows = cur.fetchall()
-    for i in rows:
-        print(i)
-    # Clean up process
+    for state in nStates:
+        print(state)
+
     cur.close()
     db.close()

@@ -1,6 +1,10 @@
 #!/usr/bin/python3
-from sqlalchemy import Column, Integer, String, text, ForeignKey
-from relationship_state import Base
+"""Definition of the City class"""
+
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, ForeignKey
+
+Base = declarative_base()
 """
     Module that performs creates a States class based off of Base.
 """
