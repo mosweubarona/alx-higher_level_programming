@@ -2,16 +2,23 @@
 """find-peak function"""
 
 
-def find_peak(list_of_integers):
-    """find a peak in a list of unsorted integers."""
-    TheList = list_of_integers
-    le = len(TheList)
-    if le == 0:
-        return
-    x = le // 2
-    if (x == le - 1 or TheList[x] >= TheList[x + 1]) and
-    (x == 0 or TheList[x] >= TheList[x - 1]):
-        return TheList[x]
-    if x != le - 1 and TheList[x + 1] > TheList[x]:
-        return find_peak(TheList[x + 1:])
-    return find_peak(TheList[:m])
+def find_peak(TheList):
+    """Finds a peak in TheList"""
+
+    if TheList is None or TheList == []:
+        return None
+    x = 0
+    z = len(TheList)
+    Y = ((z - x) // 2) + x
+    Y = int(Y)
+    if z == 1:
+        return TheList[0]
+    if z == 2:
+        return max(TheList)
+    if TheList[Y] >= TheList[Y - 1] and\
+            TheList[Y] >= TheList[Y + 1]:
+        return TheList[Y]
+    if Y > 0 and TheList[Y] < TheList[Y + 1]:
+        return find_peak(TheList[Y:])
+    if Y > 0 and TheList[Y] < TheList[Y - 1]:
+        return find_peak(TheList[:Y])
