@@ -6,7 +6,7 @@
 if __name__ == "__main__":
     import requests
 
-    url = "https://intranet.hbtn.io/status"
+    url = "https://alx-intranet.hbtn.io/status"
     X = requests.get(url)
 
     print("Body response:")
