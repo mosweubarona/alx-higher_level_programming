@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-#fatchs the url
+# fatchs the url
 import urllib.request
-#open connection to url
+# open connection to url
 
 with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
     html = response.read()
