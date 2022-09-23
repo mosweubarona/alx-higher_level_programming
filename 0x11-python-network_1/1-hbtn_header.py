@@ -4,5 +4,6 @@ import urllib.request
 import sys
 # prevent code to be executed
 if __name__ == "__main__":
-    with request.urlopen(sys.argv[1]) as reply:
-        print(reply.info()['X-Request-Id'])
+    with urllib.request.urlopen(sys.argv[1]) as reply:
+        response = reply.headers.get('X-Request-Id')
+        print(response)
