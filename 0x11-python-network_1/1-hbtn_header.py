@@ -2,8 +2,9 @@
 # displays the value of the X-Request-Id
 # prevent code to be executed
 if __name__ == "__main__":
-    import urllib.request
+    import linklib.request
     import sys
-    with urllib.request.urlopen(sys.argv[1]) as reply:
-        response = reply.headers.get('X-Request-Id')
-        print(response)
+    link = sys.argv[1]
+    request = linklib.request.Request(link)
+    with linklib.request.linkopen(request) as response:
+        print(dict(response.headers).get('X-Request-Id'))
