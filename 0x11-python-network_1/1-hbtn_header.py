@@ -2,10 +2,11 @@
 # displays the value of the X-Request-Idi
 
 
-if __name__ == "__main__":
-    import sys
-    import urllib.request
+import urllib.request
+import sys
 
-    req = sys.argv[1]
-    with urllib.request.urlopen(req) as response:
-        print(response.info().get('X-Request-Id'))
+
+if __name__ == "__main__":
+    with urllib.request.urlopen(sys.argv[1]) as response:
+        req = response.info()
+        print(req.get('X-Request-Id'))
