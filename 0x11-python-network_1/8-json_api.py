@@ -10,10 +10,10 @@ import requests
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        arg = sys.argv[1]
+        q = sys.argv[1]
     else:
-        arg = ""
-        payload = {'arg': arg}
+        q = ""
+        payload = {'q': q}
         r = requests.post("http://0.0.0.0:5000/search_user", data=payload)
     try:
         r.raise_for_status()
