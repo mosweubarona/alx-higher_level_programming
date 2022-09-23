@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-# displays the value of the X-Request-Id
-# prevent code to be executed
+# displays the value of the X-Request-Idi
 
 
 import sys
 import urllib.request
 
 if __name__ == "__main__":
-    url = sys.argv[1]
 
-    request = urllib.request.Request(url)
+    req = sys.argv[1]
     with urllib.request.urlopen(request) as response:
-        print(dict(response.headers).get("X-Request-Id"))
+        print(response.headers.get("X-Request-Id"))
