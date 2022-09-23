@@ -13,7 +13,7 @@ if __name__ == "__main__":
         arg = sys.argv[1]
     else:
         arg = ""
-        payload = {'q': arg}
+        payload = {'arg': arg}
         r = requests.post("http://0.0.0.0:5000/search_user", data=payload)
     try:
         r.raise_for_status()

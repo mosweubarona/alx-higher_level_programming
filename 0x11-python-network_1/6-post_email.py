@@ -5,11 +5,8 @@ email as a parameter, and
 finally displays the body of the response
 """
 import sys
-import urllib.request
+import requests
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-
-    request = urllib.request.Request(url)
-    with urllib.request.urlopen(request) as response:
-        print(dict(response.headers).get("X-Request-Id"))
+    X = requests.post(sys.argv[1], data={'email': sys.argv[2]})
+    print(X.text)
